@@ -6,6 +6,7 @@ const path = require("./paths.js")
 
 module.exports = merge(common, {
   mode: "development",
+  devtool: "inline-source-map",
   output: {
     filename: "[name].bundle.js",
     clean: true,
@@ -31,6 +32,36 @@ module.exports = merge(common, {
             loader: "css-loader",
             options: {
               sourceMap: true,
+            }
+          },
+          {
+            loader: "less-loader",
+            options: {
+              sourceMap: true,
+              lessOptions: {
+                javascriptEnabled: true,
+              }
+            }
+          }
+        ]
+      },
+      // less 开启CSS Modules 
+      {
+        test: /\.less$/,
+        include: [path.resolveApp("src")],
+        exclude: [path.resolveApp('node_modules')],
+        // exclude: [/[\\/]node_modules[\\/]/],
+        use: [{
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              modules: {
+                localIdentName: '[name]__[local]'
+              },
+              importLoaders: 2,
             }
           },
           {

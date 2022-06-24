@@ -2,7 +2,7 @@ const path = require("./paths.js")
 const babelOptions = require("./babel.config.js")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackBar = require('webpackbar');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   output: {
@@ -31,7 +31,7 @@ module.exports = {
   ]
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new WebpackBar(), // 进度条
     new HtmlWebpackPlugin({
       title: "webpack5演示demo",

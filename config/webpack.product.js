@@ -47,8 +47,35 @@ module.exports = merge(common, {
             loader: "css-loader",
             options: {
               sourceMap: true,
+              modules: {
+                localIdentName: '[name]__[local]'
+              },
+              importLoaders: 2,
             }
           },
+        ]
+      },
+      {
+        test: /\.less$/,
+        include: [path.resolveApp("src")],
+        use: [{
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+            }
+          },
+          {
+            loader: "less-loader",
+            options: {
+              sourceMap: true,
+              lessOptions: {
+                javascriptEnabled: true,
+              }
+            }
+          }
         ]
       }
     ]
