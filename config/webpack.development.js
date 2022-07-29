@@ -13,6 +13,7 @@ module.exports = merge(common, {
     path: path.resolveApp("dist"),
     publicPath: "/"
   },
+  target: "web",
   devServer: {
     host: "0.0.0.0",
     port: 3000,

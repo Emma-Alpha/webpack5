@@ -14,7 +14,7 @@ function HelloMessage({ name }) {
       <Button>测试</Button>
     </div>
     <Avatar src={User1}/>
-    <div className={styles["demo1"]}>是不是红色的呢？</div>
+    <div className={styles["demo1"]}>1123</div>
   </div>
 }
 
@@ -23,4 +23,8 @@ const root = createRoot(
   document.getElementById("root")
 )
 root.render(<HelloMessage name={"Bob"} />)
+
+if(module.hot){
+  module.hot.accept();
+}
 
